@@ -41,6 +41,6 @@ The following steps can be executed when following the meetup presentation:
 
   * presentation: ./docs/Java_profiling.pdf
   * video stream: TODO:
-  * start/stop applications server (e.g. run starndalone* script sot start, Ctrl-C or process kill to stop WildFly)
+  * start/stop applications server (e.g. run standalone* script sot start, Ctrl-C or process kill to stop WildFly)
   * redeploy application modifications (e.g. run maven install in Eclipse - this will hot deploy modified EJB module under WildFly)
   * change initial data in database (e.g. simply run ./tools/oracle/create-data.pdc after modifying the script)
