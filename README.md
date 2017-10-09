@@ -21,6 +21,7 @@ Perform the following steps to set up the tools being used during the meetup:
 
   * checkout branch 20170926_Java_Profiling of this git repo
     * git clone https://github.com/t800hk/LoxonJavaIdeaLab.git
+    * git fetch origin
     * git checkout 20170926_Java_Profiling
   * open checked out folder as an existing java project under development IDE
   * start VisualVM (JAVA_HOME/bin/jvisualvm) connect to itself, click on "Sampler" tab, "Settings" checkbox, "Edit..." button for current "Preset" and create new preset named JavaIdeaLab for "com.loxon.javaidealab.\*" (this will be used during the meetup for some cases)
