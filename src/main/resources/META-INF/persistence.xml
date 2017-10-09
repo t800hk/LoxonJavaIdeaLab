@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="JavaIdeaLab" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/loxon/JavaIdeaLab</jta-data-source>
+
+		<class>com.loxon.javaidealab.domain.ZipCode</class>
+		<class>com.loxon.javaidealab.domain.Input</class>
+		<class>com.loxon.javaidealab.domain.Output</class>
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+
+			<!--property name="hibernate.show_sql" value="true"/ -->
+			<!--property name="hibernate.hbm2ddl.auto" value="create"/ -->
+
+			<property name="hibernate.current_session_context_class"
+				value="jta" />
+			<property name="hibernate.max_fetch_depth" value="3" />
+			
+			<!--  -->
+			<property name="hibernate.jdbc.batch_size" value="1000" />
+			<!--  -->
+		</properties>
+	</persistence-unit>
+</persistence>

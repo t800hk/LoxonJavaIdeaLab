@@ -1,0 +1,56 @@
+drop sequence HIBERNATE_SEQUENCE;
+create sequence HIBERNATE_SEQUENCE start with 1 increment by 1;
+
+drop sequence SEQ_OUTPUT;
+create sequence SEQ_OUTPUT start with 1 increment by 10000 cache 100000;
+
+drop table T_ZIPCODE purge;
+create table T_ZIPCODE
+(
+  zipcode number not null,
+  city    varchar2(256)
+/*FIXME @deprecated*
+, dummy01 varchar2(256)
+, dummy02 varchar2(256)
+, dummy03 varchar2(256)
+, dummy04 varchar2(256)
+, dummy05 varchar2(256)
+, dummy06 varchar2(256)
+, dummy07 varchar2(256)
+, dummy08 varchar2(256)
+, dummy09 varchar2(256)
+, dummy10 varchar2(256)
+, dummy11 varchar2(256)
+, dummy12 varchar2(256)
+, dummy13 varchar2(256)
+, dummy14 varchar2(256)
+, dummy15 varchar2(256)
+, dummy16 varchar2(256)
+, dummy17 varchar2(256)
+, dummy18 varchar2(256)
+, dummy19 varchar2(256)
+, dummy20 varchar2(256)
+/**/
+);
+
+drop table T_INPUT purge;
+create table T_INPUT
+(
+  id           number not null,
+  zipcode      number not null,
+  address      varchar2(2048) not null,
+  contractdate date not null,
+  buildyear    number(4) not null
+)
+;
+
+drop table T_OUTPUT purge;
+create table T_OUTPUT
+(
+  id           number not null,
+  city         varchar2(256) not null,
+  address      varchar2(2048) not null,
+  contractdate date not null,
+  buildyear    number(4) not null
+)
+;

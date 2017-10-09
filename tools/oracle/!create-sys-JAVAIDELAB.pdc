@@ -1,0 +1,20 @@
+define USER_NAME=JAVAIDEALAB
+
+define TS_TAB=&USER_NAME._TAB
+define TS_TMP=&USER_NAME._TMP
+
+CREATE TABLESPACE &TS_TAB DATAFILE 'e:/oracle/oradata/UTF8/&TS_TAB..dbf' SIZE 256M AUTOEXTEND ON NEXT 256M MAXSIZE 4G;
+CREATE TEMPORARY TABLESPACE &TS_TMP TEMPFILE 'e:/oracle/oradata/UTF8/&TS_TMP..dbf' SIZE 128M AUTOEXTEND ON NEXT 128M MAXSIZE 4G EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1048576;
+
+create user &USER_NAME
+  identified by &USER_NAME
+  default tablespace &TS_TAB
+  temporary tablespace &TS_TMP
+  quota unlimited on &TS_TAB
+  ;
+grant create session to &USER_NAME;
+grant create procedure to &USER_NAME;
+grant create sequence to &USER_NAME;
+grant create synonym to &USER_NAME;
+grant create table to &USER_NAME;
+grant create view to &USER_NAME;

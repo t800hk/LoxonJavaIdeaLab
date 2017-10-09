@@ -1,0 +1,9 @@
+define USER_NAME=JAVAIDEALAB
+
+define TS_TAB=&USER_NAME._TAB
+define TS_TMP=&USER_NAME._TMP
+
+drop user &USER_NAME cascade;
+
+DROP TABLESPACE &TS_TAB including contents and datafiles cascade constraints; 
+DROP TABLESPACE &TS_TMP including contents and datafiles cascade constraints; 

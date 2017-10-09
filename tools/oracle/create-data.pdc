@@ -1,0 +1,71 @@
+delete from t_input;
+--insert into t_input (id, zipcode, address, contractdate, buildyear)
+--  values (hibernate_sequence.nextval, 1134, 'Dévai u. 26-28', date '2011-01-01', 2002);
+set serveroutput on size unlimited
+declare
+  l_cnt number := 0;
+begin
+  for l_rnd in 1 .. 
+    --5
+    --7
+    --10
+    --14
+    --20
+    30
+    --50
+    --100
+    --140
+    --185
+    --190
+    --200
+  loop
+    insert into t_input (id, zipcode, address, contractdate, buildyear)
+      select 
+          hibernate_sequence.nextval, 1000+mod(l_cnt+level,9000)
+        , 'Idea lab district ' || trunc((l_cnt+level)/300) || ', java street no. ' || mod(l_cnt+level,300)
+        , date '1990-01-01'+l_cnt+level
+        , 1900+mod(l_cnt+level, 110)
+      from dual
+      connect by level < 
+        --1
+        --10
+        --100
+        --1000
+        10000
+        --50000
+        --100000
+        --150000
+        --200000
+        --300000
+      ;
+    l_cnt := l_cnt + sql%rowcount;
+  end loop;
+  dbms_output.put_line(l_cnt || ' rows inserted');
+end;
+/
+set serveroutput off
+
+delete from t_zipcode;
+set serveroutput on size unlimited
+declare
+  l_cnt number := 0;
+begin
+  for l_rnd in 1 .. 
+    1
+    --10
+  loop
+    insert into t_zipcode (zipcode, city)
+      select l_cnt+level-1+1000, 'City of java idea lab masters#' || (l_cnt+level)
+      from dual
+      connect by level <= 
+         9000
+        --100000
+        ;
+    l_cnt := l_cnt + sql%rowcount;
+  end loop;
+  dbms_output.put_line(l_cnt || ' rows inserted');
+end;
+/
+set serveroutput off
+
+commit;
